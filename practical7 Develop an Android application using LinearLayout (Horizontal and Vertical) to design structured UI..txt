@@ -1,0 +1,62 @@
+1.	Go to res > layout > activity_main.xml 
+
+<LinearLayoutandroid:layout_width="match_parent"     
+android:layout_height="match_parent"     
+android:orientation="vertical"     
+xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<TextViewandroid:layout_width="match_parent"         
+android:layout_height="wrap_content"         
+android:text="Student Registraction"         
+android:textSize="30dp" 
+android:layout_gravity="center"/>
+
+<EditTextandroid:layout_width="match_parent"             
+android:layout_height="wrap_content"             
+android:textSize="30dp"             
+android:hint="Enter name"/>
+
+<EditTextandroid:layout_width="match_parent"             
+android:layout_height="wrap_content"             
+android:textSize="30dp"             
+android:hint="Enter Email"/>
+<LinearLayout
+android:layout_width="match_parent"             
+android:layout_height="wrap_content"             
+android:gravity="center" 
+android:orientation="horizontal">
+<Button             
+android:layout_width="wrap_content"             
+android:layout_height="wrap_content"             
+android:text="Submit"             
+android:textSize="26dp"/>
+<Button              
+android:layout_width="wrap_content"             
+ android:layout_height="wrap_content"              
+android:text="Reset"              
+android:textSize="26dp" 
+android:layout_marginStart="30dp"/>
+</LinearLayout>
+</LinearLayout>
+
+2.	Go to app > java > MainActivity.java 
+
+package com.example.pract7; 
+
+import android.os.Bundle; 
+
+import androidx.activity.EdgeToEdge; 
+import androidx.appcompat.app.AppCompatActivity; 
+import androidx.core.graphics.Insets; 
+import androidx.core.view.ViewCompat; 
+import androidx.core.view.WindowInsetsCompat; 
+
+public class MainActivity extends AppCompatActivity { 
+
+    @Override     protected void onCreate(Bundle savedInstanceState) {  
+super.onCreate(savedInstanceState);   
+EdgeToEdge.enable(this); 
+setContentView(R.layout.activity_main); 
+
+    } 
+}

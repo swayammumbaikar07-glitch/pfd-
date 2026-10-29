@@ -1,0 +1,80 @@
+1.	Go to res > layout > activity_main.xml 
+
+<AbsoluteLayoutandroid:layout_width="match_parent"     
+android:layout_height="match_parent"     
+xmlns:android="http://schemas.android.com/apk/res/android">
+
+<TextView
+android:layout_width="wrap_content"         
+android:layout_height="wrap_content"         
+android:text="Login"         
+android:textSize="30dp"         
+android:textStyle="bold"         
+android:layout_x="150dp"         
+android:layout_y="30dp"/>
+<TextView
+android:layout_width="wrap_content"         
+android:layout_height="wrap_content"         
+android:text="Username:"         
+android:layout_x="40dp"         
+android:layout_y="70dp"         
+android:textSize="25dp"/>
+<EditTextandroid:layout_width="wrap_content"         
+
+android:layout_height="wrap_content"         
+android:hint="Enter Username"         
+android:textSize="25dp"         
+android:layout_y="60dp"         
+android:layout_x="160dp"/>
+<TextViewandroid:layout_width="wrap_content"         
+android:layout_height="wrap_content"        
+ android:text="Password:"        
+ android:layout_x="40dp"     
+    android:layout_y="130dp"     
+    android:textSize="25dp"/>
+<EditTextandroid:layout_width="wrap_content"         
+android:layout_height="wrap_content"         
+android:hint="Enter Password"         
+android:textSize="25dp"         
+android:layout_y="120dp"         
+android:layout_x="160dp"/>
+<Button         
+android:layout_width="wrap_content"   
+android:layout_height="wrap_content"         
+android:id="@+id/button"     
+    android:layout_x="56dp"      
+   android:layout_y="191dp"      
+   android:textSize="25dp"      
+   android:text="Login"/>
+<Button         
+android:layout_width="wrap_content"       
+  android:layout_height="wrap_content"      
+   android:id="@+id/button1"     
+    android:layout_x="190dp"     
+    android:layout_y="191dp"     
+    android:textSize="25dp"      
+   android:text="Reset"/>
+
+</AbsoluteLayout>
+
+2.	Go to app > java > MainActivity.java 
+
+package com.example.pract11; 
+
+import android.os.Bundle; 
+
+import androidx.activity.EdgeToEdge; 
+import androidx.appcompat.app.AppCompatActivity; 
+import androidx.core.graphics.Insets; 
+import androidx.core.view.ViewCompat; 
+import androidx.core.view.WindowInsetsCompat; 
+
+public class MainActivity extends AppCompatActivity { 
+
+    @Override     protected void onCreate(Bundle savedInstanceState) {  
+super.onCreate(savedInstanceState);   
+EdgeToEdge.enable(this); 
+setContentView(R.layout.activity_main); 
+
+    } 
+} 

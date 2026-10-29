@@ -1,0 +1,82 @@
+1.	Go to app > java > MainActivity.java 
+
+package com.example.pract3; 
+
+import android.os.Bundle; 
+import android.util.Log; 
+
+import androidx.activity.EdgeToEdge; 
+import androidx.appcompat.app.AppCompatActivity; 
+import androidx.core.graphics.Insets; 
+import androidx.core.view.ViewCompat; 
+import androidx.core.view.WindowInsetsCompat; 
+
+import org.jspecify.annotations.Nullable; 
+
+public class MainActivity extends AppCompatActivity { 
+
+
+    String TAG="ActivityLifecycle"; 
+
+
+    @Override 
+    protected void onCreate(@Nullable Bundle savedInstanceState) {  super.onCreate(savedInstanceState);   
+setContentView(R.layout.activity_main); 
+Log.d(TAG,"onCreate() Method"); 
+    } 
+
+    @Override 
+    protected void onStart() {  
+super.onStart(); 
+Log.d(TAG,"onStart() Method"); 
+    } 
+
+    @Override    
+ protected void onDestroy() {  
+super.onDestroy(); 
+Log.d(TAG,"onDestory() Method"); 
+    } 
+
+    @Override     
+protected void onRestart() {  
+super.onRestart(); 
+Log.d(TAG,"onRestart() Method"); 
+    } 
+
+    @Override     
+protected void onPause() { 
+ super.onPause(); 
+Log.d(TAG,"onPause() Method"); 
+    } 
+
+    @Override     
+protected void onStop() {  
+super.onStop(); 
+Log.d(TAG,"onStop() Method"); 
+    } 
+
+    @Override     
+protected void onResume() {  
+super.onResume(); 
+Log.d(TAG,"onResume() Method"); 
+    } 
+} 
+
+2.	Go to res > layout > activity_main.xml 
+
+<?xml version="1.0" encoding="utf-
+8"?><androidx.constraintlayout.widget.ConstraintLayoutxmlns:android="http://schemas.android.com/apk/res/android"     
+xmlns:app="http://schemas.android.com/apk/res-auto"     
+xmlns:tools="http://schemas.android.com/tools"     
+android:id="@+id/main"     android:layout_width="match_parent"     
+android:layout_height="match_parent"     tools:context=".MainActivity">
+
+<TextViewandroid:layout_width="wrap_content"         
+android:layout_height="wrap_content"         
+android:text="Hello World!"         
+app:layout_constraintBottom_toBottomOf="parent"        
+ app:layout_constraintEnd_toEndOf="parent"         
+app:layout_constraintStart_toStartOf="parent"         
+app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

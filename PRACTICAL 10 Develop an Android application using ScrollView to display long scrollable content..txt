@@ -1,0 +1,50 @@
+1.	Go to res > layout > activity_main.xml 
+
+<ScrollViewandroid:layout_width="match_parent"     android:layout_height="match_parent"     xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<LinearLayoutandroid:layout_width="match_parent" android:layout_height="wrap_content"         android:orientation="vertical"         android:padding="20dp">
+
+<TextViewandroid:layout_width="wrap_content"             android:layout_height="wrap_content"             android:text="Registration form"             android:textSize="20dp"             android:layout_gravity="center"             android:textStyle="bold"/>
+<EditText
+android:layout_width="wrap_content"             android:layout_height="wrap_content"             android:textSize="20dp" 
+android:hint="Enter First Name"/>
+<EditText
+android:layout_width="wrap_content"             android:layout_height="wrap_content"             android:textSize="20dp" 
+android:hint="Enter Middle Name"/>
+<EditText
+android:layout_width="wrap_content"             android:layout_height="wrap_content"             android:textSize="20dp"             android:hint="Enter Last Name"/>
+<EditTextandroid:layout_width="wrap_content"             android:layout_height="wrap_content"             android:textSize="20dp"             android:hint="Enter Email"/>
+<EditTextandroid:layout_width="wrap_content"             android:layout_height="wrap_content"             android:textSize="20dp"             android:hint="Enter Mobile No"/>
+<EditTextandroid:layout_width="wrap_content"             android:layout_height="wrap_content"             android:textSize="20dp"             android:hint="Enter Address "/>
+<EditTextandroid:layout_width="wrap_content"             android:layout_height="wrap_content"             android:textSize="20dp"             android:hint="Enter City "/>
+<EditTextandroid:layout_width="wrap_content"             android:layout_height="wrap_content"             android:textSize="20dp"             android:hint="Enter State"/>
+<EditText
+android:layout_width="wrap_content"             android:layout_height="wrap_content"             android:textSize="20dp"             android:hint="Enter Country "/>
+<EditText
+android:layout_width="wrap_content"             android:layout_height="wrap_content"             android:textSize="20dp"             android:hint="Enter Skills"/>
+<EditTextandroid:layout_width="wrap_content"             android:layout_height="wrap_content"             android:textSize="20dp"             android:hint="Enter Password"/>
+<EditTextandroid:layout_width="wrap_content"             android:layout_height="wrap_content"             android:textSize="20dp" 
+android:hint="Enter  Confrim Password"/>
+<EditTextandroid:layout_width="wrap_content"             android:layout_height="wrap_content"             android:textSize="20dp"             android:hint="Enter Qualification"/>
+<EditTextandroid:layout_width="wrap_content"             android:layout_height="wrap_content"             android:textSize="20dp"             android:hint="Enter Hobbies"/>
+<Button             android:layout_width="wrap_content"             android:layout_height="wrap_content"             android:text="Sumit"             android:textSize="20dp"/>
+<Button             android:layout_width="wrap_content"             android:layout_height="wrap_content"             android:text="Reset"             android:textSize="20dp"/>
+
+</LinearLayout>
+</ScrollView>
+
+2.	Go to app > java > MainActivity.java 
+
+package com.example.pract10; 
+
+import android.os.Bundle; 
+
+import androidx.activity.EdgeToEdge; import androidx.appcompat.app.AppCompatActivity; import androidx.core.graphics.Insets; import androidx.core.view.ViewCompat; import androidx.core.view.WindowInsetsCompat; 
+
+public class MainActivity extends AppCompatActivity { 
+
+    @Override     protected void onCreate(Bundle savedInstanceState) {  super.onCreate(savedInstanceState);   EdgeToEdge.enable(this); 
+setContentView(R.layout.activity_main); 
+
+    } 
+} 

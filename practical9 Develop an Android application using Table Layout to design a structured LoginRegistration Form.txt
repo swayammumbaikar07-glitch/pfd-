@@ -1,0 +1,85 @@
+1.	Go to res > layout > activity_main.xml 
+
+<TableLayoutandroid:layout_width="match_parent"     
+android:layout_height="match_parent"     
+android:id="@+id/main"  
+android:padding="20dp"    
+android:stretchColumns="1"    
+xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<TableRow>
+<EditTextandroid:layout_width="wrap_content"             
+android:layout_height="wrap_content"            
+android:textSize="20dp"             
+android:text="Register Form"             
+android:textStyle="bold"/>
+</TableRow>
+<TableRow>
+<TextViewandroid:layout_width="wrap_content"             
+android:layout_height="wrap_content"             
+android:text="Name"             
+android:textSize="20dp"/>
+<EditText
+android:layout_width="match_parent"                 
+android:layout_height="wrap_content"                 
+android:textSize="20dp"                 
+android:hint="Enter Name"/>
+</TableRow>
+<TableRow><TextViewandroid:layout_width="wrap_content"             
+android:layout_height="wrap_content"             
+android:text="Email"             
+android:textSize="20dp"/>
+<EditTextandroid:layout_width="match_parent"             
+android:layout_height="wrap_content"             
+android:textSize="20dp"             
+android:hint="Enter Email"/>
+</TableRow>
+
+<TableRow><TextViewandroid:layout_width="wrap_content"             
+android:layout_height="wrap_content"             
+android:text="Password"             
+android:textSize="20dp"/>
+<EditTextandroid:layout_width="match_parent"             
+android:layout_height="wrap_content"             
+android:textSize="20dp"             
+android:hint="Enter Password"/>
+</TableRow>
+
+<TableRow>
+<Button             
+android:layout_width="wrap_content"             
+android:layout_height="wrap_content"             
+android:textSize="20dp"             
+android:text="Registration"/>
+<Button             
+android:layout_width="wrap_content"             
+android:layout_height="wrap_content"            
+ android:textSize="20dp"             
+android:text="Reset"/>
+
+
+</TableRow>
+
+</TableLayout>
+
+2.	Go to app > java > MainActivity.java 
+
+package com.example.pract9; 
+
+import android.os.Bundle; 
+
+import androidx.activity.EdgeToEdge; 
+import androidx.appcompat.app.AppCompatActivity; 
+import androidx.core.graphics.Insets; 
+import androidx.core.view.ViewCompat; 
+import androidx.core.view.WindowInsetsCompat; 
+
+public class MainActivity extends AppCompatActivity { 
+
+    @Override     protected void onCreate(Bundle savedInstanceState) { 
+ super.onCreate(savedInstanceState);   
+EdgeToEdge.enable(this); 
+setContentView(R.layout.activity_main); 
+
+    } 
+} 

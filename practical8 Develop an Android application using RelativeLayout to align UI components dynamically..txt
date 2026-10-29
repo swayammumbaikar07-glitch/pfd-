@@ -1,0 +1,63 @@
+1.	Go to res > layout > activity_main.xml 
+<RelativeLayoutandroid:layout_width="match_parent"     
+android:layout_height="match_parent"     
+xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<TextViewandroid:id="@+id/txttitle"         
+android:layout_width="wrap_content"         
+android:layout_height="wrap_content"         
+android:layout_centerHorizontal="true"         
+android:paddingTop="30dp"        
+ android:text="Relative layout Demo"         
+android:textSize="30dp" />
+<ImageViewandroid:layout_width="wrap_content"         
+android:layout_height="wrap_content"         
+android:src="@mipmap/ic_launcher"         
+android:layout_below="@+id/txttitle"         
+android:id="@+id/img"         
+android:layout_centerHorizontal="true"/>
+<EditTextandroid:layout_width="match_parent"         
+android:layout_height="wrap_content"         
+android:layout_below="@+id/img"         
+android:textSize="24dp"         
+android:hint="Enter Name"         
+android:id="@+id/txtname"/>
+<Button         
+android:layout_width="wrap_content"         
+android:layout_height="wrap_content"         
+android:layout_below="@+id/txtname"         
+android:text="Submit"         
+android:textSize="24dp"         
+android:id="@+id/btnsub"/>
+<Button         
+android:layout_width="wrap_content"         
+android:layout_height="wrap_content"         
+android:text="Reset"         
+android:textSize="24dp"         
+android:layout_marginLeft="100dp"         
+android:layout_below="@+id/txtname"         
+android:layout_toRightOf="@+id/btnsub"/>
+
+</RelativeLayout>
+
+2.	Go to app > java > MainActivity.java 
+
+package com.example.pract8; 
+
+import android.os.Bundle; 
+
+import androidx.activity.EdgeToEdge; 
+import androidx.appcompat.app.AppCompatActivity; 
+import androidx.core.graphics.Insets; 
+import androidx.core.view.ViewCompat; 
+import androidx.core.view.WindowInsetsCompat; 
+
+public class MainActivity extends AppCompatActivity { 
+
+    @Override     protected void onCreate(Bundle savedInstanceState) {  
+super.onCreate(savedInstanceState);   
+EdgeToEdge.enable(this); 
+setContentView(R.layout.activity_main); 
+
+    } 
+} 

@@ -1,0 +1,70 @@
+1.	Recycle View 
+
+2.	Gradle Scripts >build.gradle.kts[Module:app] > edit code 
+
+implementation(“android.recycleview:recycle.4.0) 
+
+3.	Go to res > layout > activity_main.xml 
+
+<LinearLayoutandroid:layout_width="match_parent"     android:layout_height="match_parent"     android:orientation="vertical"     android:padding="10dp"     xmlns:android="http://schemas.android.com/apk/res/android">
+
+<TextViewandroid:layout_width="wrap_content"         android:layout_height="wrap_content"         android:text="RecyclerView"         android:layout_gravity="center"         android:textSize="30dp"         android:textStyle="bold"/>
+<androidx.recyclerview.widget.RecyclerViewandroid:layout_width="match_parent"         android:layout_height="match_parent"         android:id="@+id/recyclerview"/>
+</LinearLayout>
+
+
+4.	Go to res > Right click > New >XML[Layout xml file] >Item_layout
+
+<?xml version="1.0" encoding="utf-8"?><TextViewandroid:layout_width="match_parent"     android:layout_height="wrap_content"     android:textSize="20dp"     android:padding="15dp"     android:id="@+id/txtitem"     xmlns:android="http://schemas.android.com/apk/res/android" />
+
+
+5.	Go to kotlin+java> Right click > New java class >MyAdapter
+
+package com.example.p15; 
+
+import android.view.LayoutInflater; import android.view.View; import android.view.ViewGroup; import android.widget.TextView; import android.widget.Toast; 
+
+import androidx.annotation.NonNull; 
+import androidx.recyclerview.widget.RecyclerView; 
+
+public class MyAdaptor extends 
+RecyclerView.Adapter<MyAdaptor.ViewHolder> { 
+
+String[] data;   public  MyAdaptor(String[] data) 
+    { 
+this.data=data; 
+    } 
+
+public  static class ViewHolder extends RecyclerView.ViewHolder{  TextViewtextView;        
+ public ViewHolder(@NonNull View itemview) 
+        { 
+            super(itemview);   textView=itemview.findViewById(R.id.txtitem);     }
+    } 
+    @NonNull     @Override     public MyAdaptor.ViewHolderonCreateViewHolder(@NonNull ViewGroup parent, int viewType) { 
+        View view= 
+LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);         
+return new ViewHolder(view); 
+    } 
+
+    @Override     public void onBindViewHolder(@NonNull MyAdaptor.ViewHolder holder, int position) {  holder.textView.setText(data[position]);   holder.itemView.setOnClickListener(v ->{  Toast.makeText(v.getContext(),"Selected: 
+"+data[position],Toast.LENGTH_LONG).show(); 
+        }); 
+    } 
+
+    @Override     public int getItemCount() {         return data.length; 
+    } 
+} 
+
+6.	Go to app > java >MainActivity.java
+            package com.example.p15; 
+          import android.os.Bundle; 
+
+import androidx.activity.EdgeToEdge; import androidx.appcompat.app.AppCompatActivity; import androidx.core.graphics.Insets; 
+import androidx.core.view.ViewCompat; import androidx.core.view.WindowInsetsCompat; import androidx.recyclerview.widget.LinearLayoutManager; import androidx.recyclerview.widget.RecyclerView; 
+
+public class MainActivity extends AppCompatActivity { RecyclerViewrecyclerView; 
+String[] lang={"JAVA","C","C++","C#","J#","PYTHON","KOTLIN","PHP","JAVA 
+SCRIPT"};     @Override     protected void onCreate(Bundle savedInstanceState) {  super.onCreate(savedInstanceState);   EdgeToEdge.enable(this);   setContentView(R.layout.activity_main);   recyclerView=findViewById(R.id.recyclerview); 
+recyclerView.setLayoutManager(new LinearLayoutManager(this));   MyAdaptor adaptor=new MyAdaptor(lang);   recyclerView.setAdapter(adaptor); 
+    } 
+}  

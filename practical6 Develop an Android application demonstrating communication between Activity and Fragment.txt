@@ -1,0 +1,148 @@
+1.	Go to res > layout > activity_main.xml 
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_container">
+
+</FrameLayout>
+
+2.	Go to res > Right Click > New > Fragment(Blank) > fagement_demo
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:id="@+id/txtmsg"
+        android:text="Message from Activity" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Message to Activity"
+        android:textSize="20dp"
+        android:id="@+id/btnsend" />
+
+</LinearLayout>
+
+3.	Go to app > java > MainActivity.java 
+package com.example.p5;
+import android.os.Bundle;
+import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity
+        implements DemoFragment.FragmentCommunication {
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        DemoFragment fragment =
+                DemoFragment.newInstance(
+                        "Hello Fragment Message From Activity"
+                );
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .commit();
+    }
+
+    @Override
+    public void onMessageFromFragment(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    }
+}
+
+4.	Go to res > Right Click > New > Fragment(Blank) >Demofragment.java
+
+package com.example.p5;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+public class DemoFragment extends Fragment {
+
+    TextView txtmsg;
+    Button btnsend;
+    String msg;
+
+    FragmentCommunication communication;
+
+    public interface FragmentCommunication {
+        void onMessageFromFragment(String msg);
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        communication = (FragmentCommunication) context;
+    }
+
+    public static DemoFragment newInstance(String msg) {
+
+        DemoFragment fragment = new DemoFragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("Message", msg);
+
+        fragment.setArguments(bundle);
+
+        return fragment;
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(
+            @NonNull LayoutInflater inflater,
+            @Nullable ViewGroup container,
+            @Nullable Bundle savedInstanceState) {
+
+        View view = inflater.inflate(
+                R.layout.fragment_demo,
+                container,
+                false
+        );
+
+        txtmsg = view.findViewById(R.id.txtmsg);
+        btnsend = view.findViewById(R.id.btnsend);
+
+        if (getArguments() != null) {
+            msg = getArguments().getString("Message");
+            txtmsg.setText(msg);
+        }
+
+        btnsend.setOnClickListener(v -> {
+            communication.onMessageFromFragment(
+                    "Hello Activity Message From Fragment"
+            );
+        });
+
+        return view;
+    }
+}

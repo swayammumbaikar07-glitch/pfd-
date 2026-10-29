@@ -1,0 +1,84 @@
+1.	Go to res > values > colors.xml > add color (eg.blue) 
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<color name="black">#FF000000</color>
+<color name="white">#FFFFFFFF</color>
+<color name="blue">#038DCB</color>
+</resources>
+
+2.	Go to res > values > string.xml > string add classname TYIT 
+
+<resources>
+<string name="app_name">Pract 2</string>
+<string name="classname">TYIT</string>
+</resources>
+
+3.	Go to res > values > Create dimen.xml file > add dimentions
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<dimen name ="text_size">30dp</dimen>
+</resources>
+
+4.	Go to res > values > themes.xml > edit code 
+
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+<style name="Base.Theme.Pract2" parent="Theme.MaterialComponents.Light.DarkActionBar">
+</style>
+<style name="Theme.Pract2" parent="Base.Theme.Pract2" />
+</resources>
+
+5.	Go to res > drawable > new drawable file > background.xml 
+
+6.	Go to res > layout > activity_main.xml 
+
+<?xml version="1.0" encoding="utf
+-8"?><androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"     
+xmlns:app="http://schemas.android.com/apk/res-auto"     
+xmlns:tools="http://schemas.android.com/tools"     
+android:id="@+id/main"     
+android:layout_width="match_parent"     
+android:layout_height="match_parent"     
+tools:context=".MainActivity">
+
+<TextViewandroid:layout_width="wrap_content"        
+ android:layout_height="wrap_content"         
+android:text="@string/classname"        
+ android:textSize ="@dimen/text_size"         
+android:textColor="@color/blue"         
+app:layout_constraintBottom_toBottomOf="parent"        
+ app:layout_constraintEnd_toEndOf="parent"         
+app:layout_constraintStart_toStartOf="parent"         
+app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+7.	Go to app > java > MainActivity.java 
+
+package com.example.pract2; 
+
+import android.os.Bundle; 
+
+import androidx.activity.EdgeToEdge; 
+import androidx.appcompat.app.AppCompatActivity; 
+import androidx.core.graphics.Insets; 
+import androidx.core.view.ViewCompat; 
+import androidx.core.view.WindowInsetsCompat; 
+
+public class MainActivity extends AppCompatActivity { 
+
+    @Override     protected void 
+onCreate(Bundle savedInstanceState) {  
+super.onCreate(savedInstanceState);   
+EdgeToEdge.enable(this); 
+setContentView(R.layout.activity_main); 
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> { 
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars()); 
+v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom); 
+            return insets; 
+        }); 
+    } 
+}  
